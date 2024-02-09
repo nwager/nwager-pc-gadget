@@ -8,6 +8,9 @@ description: |
 confinement: strict
 grade: stable
 icon: icon.png
+architectures:
+  - build-on: [arm64]
+    build-for: [arm64]
 
 package-repositories:
  - type: apt
@@ -29,14 +32,6 @@ assumes:
   - snapd2.60.1
 
 parts:
-  mbr:
-    source: legacy-bios
-    plugin: make
-    override-build: |
-      if [ "$CRAFT_TARGET_ARCH" != amd64 ]; then
-          exit
-      fi
-      craftctl default
   boot-assets:
     plugin: nil
     build-packages:
