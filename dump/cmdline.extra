@@ -1,0 +1,1 @@
+console=tty1 console=ttyTCU0,115200 console=ttyAMA0,115200
